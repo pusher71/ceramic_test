@@ -32,7 +32,6 @@ public class Main : MonoBehaviour
     [SerializeField] private Text _textError;
 
     [SerializeField] private RectTransform _area; //видимая рабочая область (далее - рабочая область)
-    [SerializeField] private RectTransform _areaTiles; //область конечного расположения плиток
     [SerializeField] private RectTransform _areaFill; //квадратная область, полностью заполняющаяся плитками (далее - квадрат)
     [SerializeField] private GameObject _tilePrefab; //заготовка плитки
 
@@ -48,8 +47,8 @@ public class Main : MonoBehaviour
     //очистить рабочую область
     private void ClearArea()
     {
-        while (_areaTiles.transform.childCount > 0)
-            DestroyImmediate(_areaTiles.transform.GetChild(0).gameObject);
+        while (_areaFill.transform.childCount > 0)
+            DestroyImmediate(_areaFill.transform.GetChild(0).gameObject);
     }
 
     //вводимое значение изменено
@@ -136,7 +135,6 @@ public class Main : MonoBehaviour
                 RectTransform rect = tile.GetComponent<RectTransform>(); //получить её RectTransform
                 rect.anchoredPosition = new Vector2(x, y); //задать позицию на квадрате
                 rect.sizeDelta = new Vector2(_tileWidth, _tileHeight); //применить размеры
-                tile.transform.SetParent(_areaTiles.transform, true); //сделать рабочую зону родителем плитки
 
                 //получить массивы координат углов рабочей области и углов плитки, и преобразовать из Vector3 в Vector2
                 Vector3[] areaCorners3 = new Vector3[4];
