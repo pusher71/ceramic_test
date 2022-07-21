@@ -5,17 +5,15 @@ namespace Tests
 {
     public class TestIsSegmentsIntersect
     {
-        private Main main = new Main();
-
         private void AssertResults(Vector2 start1, Vector2 end1, Vector2 start2, Vector2 end2, bool expectedIntersect, Vector2? expectedPointIntersect = null)
         {
             Vector2 actualPointIntersect;
 
-            Assert.AreEqual(expectedIntersect, main.IsSegmentsIntersect(start1, end1, start2, end2, out actualPointIntersect));
+            Assert.AreEqual(expectedIntersect, GeometryUtils.IsSegmentsIntersect(start1, end1, start2, end2, out actualPointIntersect));
             if (expectedIntersect)
                 Assert.AreEqual(expectedPointIntersect, actualPointIntersect);
 
-            Assert.AreEqual(expectedIntersect, main.IsSegmentsIntersect(start2, end2, start1, end1, out actualPointIntersect));
+            Assert.AreEqual(expectedIntersect, GeometryUtils.IsSegmentsIntersect(start2, end2, start1, end1, out actualPointIntersect));
             if (expectedIntersect)
                 Assert.AreEqual(expectedPointIntersect, actualPointIntersect);
         }

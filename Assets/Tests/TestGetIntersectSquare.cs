@@ -5,7 +5,6 @@ namespace Tests
 {
     public class TestGetIntersectSquare
     {
-        private Main main = new Main();
         private Vector2[] sharedArea1 = new Vector2[4]
         {
             new Vector2(-15, -15),
@@ -16,8 +15,8 @@ namespace Tests
 
         private void AssertResults(Vector2[] area1, Vector2[] area2, float expectedSquare)
         {
-            Assert.AreEqual(expectedSquare, main.GetIntersectSquare(area1, area2));
-            Assert.AreEqual(expectedSquare, main.GetIntersectSquare(area2, area1));
+            Assert.AreEqual(expectedSquare, GeometryUtils.GetIntersectSquare(area1, area2));
+            Assert.AreEqual(expectedSquare, GeometryUtils.GetIntersectSquare(area2, area1));
         }
 
         [Test]

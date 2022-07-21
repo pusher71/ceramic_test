@@ -6,11 +6,9 @@ namespace Tests
 {
     public class TestGetSquare
     {
-        private Main main = new Main();
-
         private void AssertResults(HashSet<Vector2> area, float expectedSquare)
         {
-            Assert.AreEqual(expectedSquare, main.GetSquare(area));
+            Assert.AreEqual(expectedSquare, GeometryUtils.GetSquare(area));
         }
 
         [Test]

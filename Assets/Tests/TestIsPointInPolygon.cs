@@ -5,7 +5,6 @@ namespace Tests
 {
     public class TestIsPointInPolygon
     {
-        private Main main = new Main();
         private Vector2[] sharedRectangle = new Vector2[4]
         {
             new Vector2(0, 0),
@@ -22,7 +21,7 @@ namespace Tests
 
         private void AssertResults(Vector2[] vertices, Vector2 point, bool expectedPointInPolygon)
         {
-            Assert.AreEqual(expectedPointInPolygon, main.IsPointInPolygon(vertices, point));
+            Assert.AreEqual(expectedPointInPolygon, GeometryUtils.IsPointInPolygon(vertices, point));
         }
 
         [Test]
