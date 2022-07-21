@@ -69,6 +69,13 @@ public class Main : MonoBehaviour
             return;
         }
 
+        //проверить швы на отрицательные значения
+        if (_seamRows <= 0 || _seamInRow <= 0)
+        {
+            ShowError("All seams must be positive!");
+            return;
+        }
+
         //показать текст обновления
         _textUpdating.enabled = true;
 
